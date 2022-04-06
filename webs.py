@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 import requests
 import pandas as pd
 
+folder_path = "results/"
+
 url = "https://www.cepea.esalq.usp.br/br/widgetproduto.js.php?"
 
 params = "id_indicador%5B%5D=54&id_indicador%5B%5D=91&id_indicador%5B%5D=leitep"
@@ -27,5 +29,6 @@ df = pd.DataFrame({'Data': data, 'Produto': produto_tipo, 'Preço': preco})
 
 df.head()
 
-# df.to_json('tabela.json')
-df.to_excel('tabela.xlsx')
+# df.to_json(folder_path + 'tabela.json')
+# df.to_html(folder_path + 'tabela.html')
+df.to_excel(folder_path + 'tabela.xlsx')
